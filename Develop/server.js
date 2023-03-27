@@ -52,13 +52,13 @@ app.get('*', (req, res) =>
 
 app.delete('/api/notes/:id', (req, res) => {
  const { id } = req.params;
- const dbIndex = db.findIndex(p => p.id == id);
+ const dbIndex = db.findIndex(p => p.id === id);
  const response = {
   status: "success",
   body: dbIndex,
  };
 
- const updatedList = db.splice(dbIndex, 1);
+ const updatedList = db.splice(dbIndex, 0);
  
  fs.writeFile('../Develop/db/db.json', JSON.stringify(updatedList), (err) =>
  err ? console.error(err) : console.log('Note Deleted!'));
