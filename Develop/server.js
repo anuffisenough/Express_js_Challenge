@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = 3001;
-const savedNotes = require('../Develop/db/db.json')
+const db = require('../Develop/db/db.json')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -16,11 +16,11 @@ app.get('/notes', (req, res) =>
 );
 
 app.get('/api/notes', (req, res) =>
-    res.json(savedNotes)
+    res.json(db)
 );
 
 app.post('/api/notes', (req, res) => {
-  console.log(`${req.body}`);
+  console.log(`${JSON.stringify(req.body)}`);
 
   const { title, text } = req.body;
   if (title && text) {
@@ -33,7 +33,10 @@ app.post('/api/notes', (req, res) => {
       status: "success",
       body: newNote,
     };
-    fs.appendFile('../Develop/db/db.json', `, ${JSON.stringify(newNote)}`, (err) =>
+
+    db.push(newNote);
+    console.log(db);
+    fs.writeFile('../Develop/db/db.json', JSON.stringify(db), (err) =>
     err ? console.error(err) : console.log('Note Saved!'));
     res.status(201).json(response);
   } else {
