@@ -3,7 +3,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = 3001;
-const db = require('../Develop/db/db.json')
+const db = require('../Develop/db/db.json');
+const uuid = require('../Develop/helpers/uuid');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -27,6 +28,7 @@ app.post('/api/notes', (req, res) => {
     const newNote = {
       title,
       text,
+      note_id: uuid(),
     };
 
     const response = {
