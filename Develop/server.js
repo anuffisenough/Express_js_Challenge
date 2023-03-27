@@ -53,10 +53,16 @@ app.get('*', (req, res) =>
 app.delete('/api/notes/:id', (req, res) => {
  const { id } = req.params;
  const dbIndex = db.findIndex(p => p.id == id);
+ const response = {
+  status: "success",
+  body: dbIndex,
+ };
 
- db.splice(dbIndex, 1);
-
- return res.send();
+ const updatedList = db.splice(dbIndex, 1);
+ 
+ fs.writeFile('../Develop/db/db.json', JSON.stringify(updatedList), (err) =>
+ err ? console.error(err) : console.log('Note Deleted!'));
+ res.status(201).json(response);
 });
 
 app.listen(PORT, () =>
