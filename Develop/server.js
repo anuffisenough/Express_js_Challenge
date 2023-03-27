@@ -28,7 +28,7 @@ app.post('/api/notes', (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: uuid(),
+      id: uuid(),
     };
 
     const response = {
@@ -49,6 +49,16 @@ app.post('/api/notes', (req, res) => {
 app.get('*', (req, res) =>
     res.sendFile(path.join(__dirname, 'public/index.html'))
 );
+
+app.delete('/api/notes/:id', (req, res) => {
+ const { id } = req.params;
+ const dbIndex = db.findIndex(p => p.id == id);
+
+ db.splice(dbIndex, 1);
+
+ return res.send();
+});
+
 app.listen(PORT, () =>
   console.log(`Express server listening on port ${PORT}!`)
 );
