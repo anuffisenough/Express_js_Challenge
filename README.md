@@ -22,13 +22,13 @@ Heroku Link
 
 ### Screenshots
 
-![Screenshot of Note Taker Homepage](/Develop/public/assets/ExpressjsChallengeHP.png)
+![Screenshot of Note Taker Homepage](/public/assets/ExpressjsChallengeHP.png)
 
-![Screenshot of Note Taker Notes Page](/Develop/public/assets/ExpressjsChallengeNotes.png)
+![Screenshot of Note Taker Notes Page](/public/assets/ExpressjsChallengeNotes.png)
 
-![Screenshot of Note Taker Saved Notes](/Develop/public/assets/ExpressjsChallengeTestNote.png)
+![Screenshot of Note Taker Saved Notes](/public/assets/ExpressjsChallengeTestNote.png)
 
-![Screenshot of Note Taker Deleted Notes](/Develop/public/assets/ExpressjsChallengeTestDelete.png)
+![Screenshot of Note Taker Deleted Notes](/public/assets/ExpressjsChallengeTestDelete.png)
 
 ### Credits
 
