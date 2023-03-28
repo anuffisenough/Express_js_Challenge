@@ -58,7 +58,7 @@ app.delete('/api/notes/:id', (req, res) => {
   body: dbIndex,
  };
 
- const updatedList = db.splice(dbIndex, 0);
+ const updatedList = db.splice(dbIndex, 1);
  
  fs.writeFile('../Develop/db/db.json', JSON.stringify(updatedList), (err) =>
  err ? console.error(err) : console.log('Note Deleted!'));
