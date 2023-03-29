@@ -18,7 +18,7 @@
 
 ## Usage
 
-Heroku Link
+The application is deployed live on [Heroku](https://expressjsapp.herokuapp.com/)
 
 ### Screenshots
 
